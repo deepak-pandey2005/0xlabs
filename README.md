@@ -6,7 +6,7 @@ A hands-on, educational laboratory for mastering x86_64 architecture, ELF binary
 
 ## Curriculum Overview
 
-This lab is structured into five progressive modules:
+This lab is structured into eight progressive modules:
 
 | Module | Topic | Core Concepts | Key Tools |
 |---|---|---|---|
@@ -15,13 +15,16 @@ This lab is structured into five progressive modules:
 | **[03-reverse-engineering-basics](./03-reverse-engineering-basics/)** | Reverse Engineering | Static analysis, control flow reconstruction, dynamic tracing, symbol recovery | `gdb`, `objdump`, `strings` |
 | **[04-memory-corruption-mechanics](./04-memory-corruption-mechanics/)** | Memory Corruption Theory | Out-of-bounds writes, adjacent variable corruption, return address overwrites | `gcc`, `gdb` |
 | **[05-binary-mitigations-and-defense](./05-binary-mitigations-and-defense/)** | Mitigations & Hardening | Stack Canaries, NX/DEP, PIE/ASLR, RELRO, safe C coding patterns | `gcc`, `readelf`, `gdb` |
+| **[06-format-string-vulnerabilities](./06-format-string-vulnerabilities/)** | Format Strings & Info Leaks | Variadic calling convention, arbitrary stack reading, memory disclosure, `-Wformat-security` | `gcc`, `gdb` |
+| **[07-heap-internals-and-lifecycle](./07-heap-internals-and-lifecycle/)** | Heap Internals & UAF | Glibc chunk metadata, tcache bin recycling, Use-After-Free, AddressSanitizer (ASan) | `gcc`, `gdb`, `libasan` |
+| **[08-rop-theory-and-cfi](./08-rop-theory-and-cfi/)** | ROP & Control Flow Integrity | Code reuse theory, gadget chaining, Intel CET Shadow Stacks, IBT (`endbr64`), Clang CFI | `objdump`, `gcc` |
 
 ---
 
 ## Quickstart
 
 ### Prerequisites Check
-Ensure you have the standard GNU build and debugging toolchain installed:
+Ensure you have the standard GNU build, debugging, and sanitizer toolchain installed:
 ```bash
 gcc --version
 gdb --version
@@ -31,12 +34,12 @@ make --version
 ```
 
 ### Build Everything
-To compile all modules with their target compiler configurations:
+To compile all modules with their respective compiler configurations:
 ```bash
 make all
 ```
 
-To clean all compiled binaries:
+To clean all compiled binaries across all modules:
 ```bash
 make clean
 ```
@@ -45,8 +48,11 @@ make clean
 
 ## Recommended Learning Flow
 
-1. **Step 1:** Start with **`01-binary-anatomy`** to demystify how source code turns into an Executable and Linkable Format (ELF) file.
-2. **Step 2:** Move to **`02-x86_64-and-stack-frames`** to learn how CPU registers (`%rax`, `%rdi`, `%rsp`, `%rbp`) manage function calls, local variables, and the stack.
-3. **Step 3:** Complete **`03-reverse-engineering-basics`** to practice reading disassembly and reconstructing high-level program logic without source code.
-4. **Step 4:** Study **`04-memory-corruption-mechanics`** in GDB to see how unbounded writes corrupt adjacent stack variables and control pointers.
-5. **Step 5:** Finish with **`05-binary-mitigations-and-defense`** to understand how compilers and operating systems detect and mitigate memory corruption, and how to write secure code.
+1. **Step 1: [01-binary-anatomy](./01-binary-anatomy/)** — Demystify how compiled code is packaged into an ELF binary.
+2. **Step 2: [02-x86_64-and-stack-frames](./02-x86_64-and-stack-frames/)** — Trace registers (`%rax`, `%rdi`, `%rsp`, `%rbp`) and stack frame construction.
+3. **Step 3: [03-reverse-engineering-basics](./03-reverse-engineering-basics/)** — Reverse engineer a verification binary using disassembly and GDB.
+4. **Step 4: [04-memory-corruption-mechanics](./04-memory-corruption-mechanics/)** — Inspect how adjacent stack variables are corrupted by out-of-bounds memory writes.
+5. **Step 5: [05-binary-mitigations-and-defense](./05-binary-mitigations-and-defense/)** — Audit platform mitigations (Canaries, NX, PIE, Full RELRO, FORTIFY).
+6. **Step 6: [06-format-string-vulnerabilities](./06-format-string-vulnerabilities/)** — Study variadic functions and stack memory disclosure bugs.
+7. **Step 7: [07-heap-internals-and-lifecycle](./07-heap-internals-and-lifecycle/)** — Understand dynamic memory chunks, Use-After-Free (UAF), and AddressSanitizer.
+8. **Step 8: [08-rop-theory-and-cfi](./08-rop-theory-and-cfi/)** — Explore code reuse concepts (gadgets) and modern hardware defenses (Intel CET, ARM PAC).
