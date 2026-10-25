@@ -6,7 +6,7 @@ A hands-on, educational laboratory for mastering x86_64 architecture, ELF binary
 
 ## Curriculum Overview
 
-This lab is structured into eight progressive modules:
+This lab is structured into eleven progressive modules:
 
 | Module | Topic | Core Concepts | Key Tools |
 |---|---|---|---|
@@ -18,6 +18,9 @@ This lab is structured into eight progressive modules:
 | **[06-format-string-vulnerabilities](./06-format-string-vulnerabilities/)** | Format Strings & Info Leaks | Variadic calling convention, arbitrary stack reading, memory disclosure, `-Wformat-security` | `gcc`, `gdb` |
 | **[07-heap-internals-and-lifecycle](./07-heap-internals-and-lifecycle/)** | Heap Internals & UAF | Glibc chunk metadata, tcache bin recycling, Use-After-Free, AddressSanitizer (ASan) | `gcc`, `gdb`, `libasan` |
 | **[08-rop-theory-and-cfi](./08-rop-theory-and-cfi/)** | ROP & Control Flow Integrity | Code reuse theory, gadget chaining, Intel CET Shadow Stacks, IBT (`endbr64`), Clang CFI | `objdump`, `gcc` |
+| **[09-integer-overflow-and-signedness](./09-integer-overflow-and-signedness/)** | Integer Mechanics & Wrap-around | Arithmetic wrap-around, signedness confusion, undersized allocations, UBSan | `gcc`, `ubsan` |
+| **[10-dynamic-linking-and-hooking](./10-dynamic-linking-and-hooking/)** | Dynamic Linking & PLT/GOT | Runtime symbol resolution, `.plt`/`.got.plt`, function interposition via `LD_PRELOAD` | `gcc`, `readelf`, `ld.so` |
+| **[11-syscalls-and-process-isolation](./11-syscalls-and-process-isolation/)** | Syscalls & Sandboxing | Ring 3 to Ring 0 transitions, raw `syscall` assembly, SECCOMP strict sandboxing | `gcc`, `prctl`, `seccomp` |
 
 ---
 
@@ -56,3 +59,6 @@ make clean
 6. **Step 6: [06-format-string-vulnerabilities](./06-format-string-vulnerabilities/)** — Study variadic functions and stack memory disclosure bugs.
 7. **Step 7: [07-heap-internals-and-lifecycle](./07-heap-internals-and-lifecycle/)** — Understand dynamic memory chunks, Use-After-Free (UAF), and AddressSanitizer.
 8. **Step 8: [08-rop-theory-and-cfi](./08-rop-theory-and-cfi/)** — Explore code reuse concepts (gadgets) and modern hardware defenses (Intel CET, ARM PAC).
+9. **Step 9: [09-integer-overflow-and-signedness](./09-integer-overflow-and-signedness/)** — Analyze arithmetic overflow, signedness bugs, and UBSan detection.
+10. **Step 10: [10-dynamic-linking-and-hooking](./10-dynamic-linking-and-hooking/)** — Trace PLT/GOT resolution and intercept APIs via `LD_PRELOAD`.
+11. **Step 11: [11-syscalls-and-process-isolation](./11-syscalls-and-process-isolation/)** — Examine direct x86_64 system calls and lock down execution with kernel SECCOMP sandboxing.
