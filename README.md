@@ -6,7 +6,7 @@ A hands-on, educational laboratory for mastering x86_64 architecture, ELF binary
 
 ## Curriculum Overview
 
-This lab is structured into fifteen progressive modules:
+This lab is structured into eighteen progressive modules across fundamental theory and real-world implementations:
 
 | Module | Topic | Core Concepts | Key Tools |
 |---|---|---|---|
@@ -25,6 +25,9 @@ This lab is structured into fifteen progressive modules:
 | **[13-anti-debugging-techniques](./13-anti-debugging-techniques/)** | Anti-Debugging Analysis | PTRACE_TRACEME, TracerPid checks, RDTSC timing checks, GDB dynamic bypasses | `gcc`, `gdb`, `ptrace` |
 | **[14-cpp-vtables-and-dynamic-dispatch](./14-cpp-vtables-and-dynamic-dispatch/)** | C++ vtables & Polymorphism | Itanium C++ ABI, `_vptr` layout, indirect calls, Forward-Edge CFI defenses | `g++`, `objdump`, `gdb` |
 | **[15-control-flow-flattening-and-obfuscation](./15-control-flow-flattening-and-obfuscation/)** | Obfuscation & De-flattening | Control flow flattening, switch dispatchers, CFG recovery with GDB Python | `gcc`, `gdb`, `python` |
+| **[16-real-world-case-study-heap-overflow](./16-real-world-case-study-heap-overflow/)** | Case Study: CVE-2021-3156 Pattern | Command-line argument unescaping, null-byte leaping, heap buffer overflow & patch diff | `gcc`, `ASan` |
+| **[17-real-world-file-format-parser](./17-real-world-file-format-parser/)** | Real-World BMP Image Decoder | Binary header parsing (DIB), row stride calculations, multiplicative dimension wrap | `gcc`, `python`, `ASan` |
+| **[18-race-conditions-and-toctou](./18-race-conditions-and-toctou/)** | Concurrency: TOCTOU Races | Time-of-check to time-of-use symlink attacks, atomic file operations (`O_NOFOLLOW`/`O_EXCL`) | `gcc`, `fcntl` |
 
 ---
 
@@ -52,23 +55,3 @@ To clean all compiled binaries across all modules:
 ```bash
 make clean
 ```
-
----
-
-## Recommended Learning Flow
-
-1. **Step 1: [01-binary-anatomy](./01-binary-anatomy/)** — Demystify how compiled code is packaged into an ELF binary.
-2. **Step 2: [02-x86_64-and-stack-frames](./02-x86_64-and-stack-frames/)** — Trace registers (`%rax`, `%rdi`, `%rsp`, `%rbp`) and stack frame construction.
-3. **Step 3: [03-reverse-engineering-basics](./03-reverse-engineering-basics/)** — Reverse engineer a verification binary using disassembly and GDB.
-4. **Step 4: [04-memory-corruption-mechanics](./04-memory-corruption-mechanics/)** — Inspect how adjacent stack variables are corrupted by out-of-bounds memory writes.
-5. **Step 5: [05-binary-mitigations-and-defense](./05-binary-mitigations-and-defense/)** — Audit platform mitigations (Canaries, NX, PIE, Full RELRO, FORTIFY).
-6. **Step 6: [06-format-string-vulnerabilities](./06-format-string-vulnerabilities/)** — Study variadic functions and stack memory disclosure bugs.
-7. **Step 7: [07-heap-internals-and-lifecycle](./07-heap-internals-and-lifecycle/)** — Understand dynamic memory chunks, Use-After-Free (UAF), and AddressSanitizer.
-8. **Step 8: [08-rop-theory-and-cfi](./08-rop-theory-and-cfi/)** — Explore code reuse concepts (gadgets) and modern hardware defenses (Intel CET, ARM PAC).
-9. **Step 9: [09-integer-overflow-and-signedness](./09-integer-overflow-and-signedness/)** — Analyze arithmetic overflow, signedness bugs, and UBSan detection.
-10. **Step 10: [10-dynamic-linking-and-hooking](./10-dynamic-linking-and-hooking/)** — Trace PLT/GOT resolution and intercept APIs via `LD_PRELOAD`.
-11. **Step 11: [11-syscalls-and-process-isolation](./11-syscalls-and-process-isolation/)** — Examine direct x86_64 system calls and lock down execution with kernel SECCOMP sandboxing.
-12. **Step 12: [12-coverage-guided-fuzzing](./12-coverage-guided-fuzzing/)** — Automate vulnerability discovery using compiler coverage instrumentation, seed corpora, and AddressSanitizer crash triage.
-13. **Step 13: [13-anti-debugging-techniques](./13-anti-debugging-techniques/)** — Analyze anti-analysis protections (ptrace, TracerPid, RDTSC) and practice dynamic GDB bypasses.
-14. **Step 14: [14-cpp-vtables-and-dynamic-dispatch](./14-cpp-vtables-and-dynamic-dispatch/)** — Inspect C++ object memory layout, vtable function pointers, and Forward-Edge CFI.
-15. **Step 15: [15-control-flow-flattening-and-obfuscation](./15-control-flow-flattening-and-obfuscation/)** — Deconstruct switch-dispatcher state machines and recover flattened CFGs.
