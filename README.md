@@ -6,7 +6,7 @@ A hands-on, educational laboratory for mastering x86_64 architecture, ELF binary
 
 ## Curriculum Overview
 
-This lab is structured into eleven progressive modules:
+This lab is structured into twelve progressive modules:
 
 | Module | Topic | Core Concepts | Key Tools |
 |---|---|---|---|
@@ -21,15 +21,17 @@ This lab is structured into eleven progressive modules:
 | **[09-integer-overflow-and-signedness](./09-integer-overflow-and-signedness/)** | Integer Mechanics & Wrap-around | Arithmetic wrap-around, signedness confusion, undersized allocations, UBSan | `gcc`, `ubsan` |
 | **[10-dynamic-linking-and-hooking](./10-dynamic-linking-and-hooking/)** | Dynamic Linking & PLT/GOT | Runtime symbol resolution, `.plt`/`.got.plt`, function interposition via `LD_PRELOAD` | `gcc`, `readelf`, `ld.so` |
 | **[11-syscalls-and-process-isolation](./11-syscalls-and-process-isolation/)** | Syscalls & Sandboxing | Ring 3 to Ring 0 transitions, raw `syscall` assembly, SECCOMP strict sandboxing | `gcc`, `prctl`, `seccomp` |
+| **[12-coverage-guided-fuzzing](./12-coverage-guided-fuzzing/)** | Automated Bug Discovery | In-process fuzzing with LibFuzzer, coverage tracking, seed corpora, crash artifact triage | `clang`, `libFuzzer`, `ASan` |
 
 ---
 
 ## Quickstart
 
 ### Prerequisites Check
-Ensure you have the standard GNU build, debugging, and sanitizer toolchain installed:
+Ensure you have the standard GNU & LLVM build, debugging, and sanitizer toolchain installed:
 ```bash
 gcc --version
+clang --version
 gdb --version
 objdump --version
 readelf --version
@@ -62,3 +64,4 @@ make clean
 9. **Step 9: [09-integer-overflow-and-signedness](./09-integer-overflow-and-signedness/)** — Analyze arithmetic overflow, signedness bugs, and UBSan detection.
 10. **Step 10: [10-dynamic-linking-and-hooking](./10-dynamic-linking-and-hooking/)** — Trace PLT/GOT resolution and intercept APIs via `LD_PRELOAD`.
 11. **Step 11: [11-syscalls-and-process-isolation](./11-syscalls-and-process-isolation/)** — Examine direct x86_64 system calls and lock down execution with kernel SECCOMP sandboxing.
+12. **Step 12: [12-coverage-guided-fuzzing](./12-coverage-guided-fuzzing/)** — Automate vulnerability discovery using compiler coverage instrumentation, seed corpora, and AddressSanitizer crash triage.
