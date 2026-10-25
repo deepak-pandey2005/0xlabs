@@ -6,7 +6,7 @@ A hands-on, educational laboratory for mastering x86_64 architecture, ELF binary
 
 ## Curriculum Overview
 
-This lab is structured into twelve progressive modules:
+This lab is structured into fifteen progressive modules:
 
 | Module | Topic | Core Concepts | Key Tools |
 |---|---|---|---|
@@ -22,6 +22,9 @@ This lab is structured into twelve progressive modules:
 | **[10-dynamic-linking-and-hooking](./10-dynamic-linking-and-hooking/)** | Dynamic Linking & PLT/GOT | Runtime symbol resolution, `.plt`/`.got.plt`, function interposition via `LD_PRELOAD` | `gcc`, `readelf`, `ld.so` |
 | **[11-syscalls-and-process-isolation](./11-syscalls-and-process-isolation/)** | Syscalls & Sandboxing | Ring 3 to Ring 0 transitions, raw `syscall` assembly, SECCOMP strict sandboxing | `gcc`, `prctl`, `seccomp` |
 | **[12-coverage-guided-fuzzing](./12-coverage-guided-fuzzing/)** | Automated Bug Discovery | In-process fuzzing with LibFuzzer, coverage tracking, seed corpora, crash artifact triage | `clang`, `libFuzzer`, `ASan` |
+| **[13-anti-debugging-techniques](./13-anti-debugging-techniques/)** | Anti-Debugging Analysis | PTRACE_TRACEME, TracerPid checks, RDTSC timing checks, GDB dynamic bypasses | `gcc`, `gdb`, `ptrace` |
+| **[14-cpp-vtables-and-dynamic-dispatch](./14-cpp-vtables-and-dynamic-dispatch/)** | C++ vtables & Polymorphism | Itanium C++ ABI, `_vptr` layout, indirect calls, Forward-Edge CFI defenses | `g++`, `objdump`, `gdb` |
+| **[15-control-flow-flattening-and-obfuscation](./15-control-flow-flattening-and-obfuscation/)** | Obfuscation & De-flattening | Control flow flattening, switch dispatchers, CFG recovery with GDB Python | `gcc`, `gdb`, `python` |
 
 ---
 
@@ -31,6 +34,7 @@ This lab is structured into twelve progressive modules:
 Ensure you have the standard GNU & LLVM build, debugging, and sanitizer toolchain installed:
 ```bash
 gcc --version
+g++ --version
 clang --version
 gdb --version
 objdump --version
@@ -65,3 +69,6 @@ make clean
 10. **Step 10: [10-dynamic-linking-and-hooking](./10-dynamic-linking-and-hooking/)** — Trace PLT/GOT resolution and intercept APIs via `LD_PRELOAD`.
 11. **Step 11: [11-syscalls-and-process-isolation](./11-syscalls-and-process-isolation/)** — Examine direct x86_64 system calls and lock down execution with kernel SECCOMP sandboxing.
 12. **Step 12: [12-coverage-guided-fuzzing](./12-coverage-guided-fuzzing/)** — Automate vulnerability discovery using compiler coverage instrumentation, seed corpora, and AddressSanitizer crash triage.
+13. **Step 13: [13-anti-debugging-techniques](./13-anti-debugging-techniques/)** — Analyze anti-analysis protections (ptrace, TracerPid, RDTSC) and practice dynamic GDB bypasses.
+14. **Step 14: [14-cpp-vtables-and-dynamic-dispatch](./14-cpp-vtables-and-dynamic-dispatch/)** — Inspect C++ object memory layout, vtable function pointers, and Forward-Edge CFI.
+15. **Step 15: [15-control-flow-flattening-and-obfuscation](./15-control-flow-flattening-and-obfuscation/)** — Deconstruct switch-dispatcher state machines and recover flattened CFGs.
