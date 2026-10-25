@@ -6,7 +6,7 @@ A hands-on, educational laboratory for mastering x86_64 architecture, ELF binary
 
 ## Curriculum Overview
 
-This lab is structured into eighteen progressive modules across fundamental theory and real-world implementations:
+This lab is structured into progressive modules across fundamental theory, defensive engineering, and real-world vulnerability patterns:
 
 | Module | Topic | Core Concepts | Key Tools |
 |---|---|---|---|
@@ -28,6 +28,9 @@ This lab is structured into eighteen progressive modules across fundamental theo
 | **[16-real-world-case-study-heap-overflow](./16-real-world-case-study-heap-overflow/)** | Case Study: CVE-2021-3156 Pattern | Command-line argument unescaping, null-byte leaping, heap buffer overflow & patch diff | `gcc`, `ASan` |
 | **[17-real-world-file-format-parser](./17-real-world-file-format-parser/)** | Real-World BMP Image Decoder | Binary header parsing (DIB), row stride calculations, multiplicative dimension wrap | `gcc`, `python`, `ASan` |
 | **[18-race-conditions-and-toctou](./18-race-conditions-and-toctou/)** | Concurrency: TOCTOU Races | Time-of-check to time-of-use symlink attacks, atomic file operations (`O_NOFOLLOW`/`O_EXCL`) | `gcc`, `fcntl` |
+| **[19-embedded-network-protocol-daemon](./19-embedded-network-protocol-daemon/)** | Real-World Network Protocols | HTTP/1.1 framing, socket server loop, signed `Content-Length` integer flaws, RFC 7230 parser | `gcc`, `curl`, `ASan` |
+| **[20-patch-diffing-and-root-cause-analysis](./20-patch-diffing-and-root-cause-analysis/)** | Binary Patch Diffing & 1-Day RCA | Disassembly normalization, diffing unpatched vs patched binaries, isolating vulnerability patches | `objdump`, `diff`, `gcc` |
+| **[21-jit-compilation-and-shellcode-mechanics](./21-jit-compilation-and-shellcode-mechanics/)** | JIT Compilers & Memory Protections | Dynamic bytecode-to-x86 translation via `mmap`, $W \oplus X$ enforcement via `mprotect`, hardware `SIGSEGV` | `gcc`, `mprotect`, `gdb` |
 
 ---
 
