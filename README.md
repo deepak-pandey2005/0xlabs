@@ -31,6 +31,9 @@ This lab is structured into progressive modules across fundamental theory, defen
 | **[19-embedded-network-protocol-daemon](./19-embedded-network-protocol-daemon/)** | Real-World Network Protocols | HTTP/1.1 framing, socket server loop, signed `Content-Length` integer flaws, RFC 7230 parser | `gcc`, `curl`, `ASan` |
 | **[20-patch-diffing-and-root-cause-analysis](./20-patch-diffing-and-root-cause-analysis/)** | Binary Patch Diffing & 1-Day RCA | Disassembly normalization, diffing unpatched vs patched binaries, isolating vulnerability patches | `objdump`, `diff`, `gcc` |
 | **[21-jit-compilation-and-shellcode-mechanics](./21-jit-compilation-and-shellcode-mechanics/)** | JIT Compilers & Memory Protections | Dynamic bytecode-to-x86 translation via `mmap`, $W \oplus X$ enforcement via `mprotect`, hardware `SIGSEGV` | `gcc`, `mprotect`, `gdb` |
+| **[22-kernel-attack-surface-and-ioctl](./22-kernel-attack-surface-and-ioctl/)** | Kernel Security & Device Drivers | Ring 3 to Ring 0 boundary, `ioctl` dispatch, double-fetch race flaws, SMAP / userland pointer dereferences | `gcc`, `ioctl` |
+| **[23-type-confusion-and-casting](./23-type-confusion-and-casting/)** | C++ Type Confusion & Casting | Object memory layout, `static_cast` vs `dynamic_cast`, field reinterpretation, UBSan `-fsanitize=vptr` | `g++`, `clang++`, `UBSan` |
+| **[24-uninitialized-memory-and-infoleaks](./24-uninitialized-memory-and-infoleaks/)** | Struct Padding & Information Leaks | C structure alignment holes, uninitialized stack/kernel disclosures (KASLR defeat), `-ftrivial-auto-var-init` | `gcc`, `ASLR` |
 
 ---
 
