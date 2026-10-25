@@ -34,6 +34,9 @@ This lab is structured into progressive modules across fundamental theory, defen
 | **[22-kernel-attack-surface-and-ioctl](./22-kernel-attack-surface-and-ioctl/)** | Kernel Security & Device Drivers | Ring 3 to Ring 0 boundary, `ioctl` dispatch, double-fetch race flaws, SMAP / userland pointer dereferences | `gcc`, `ioctl` |
 | **[23-type-confusion-and-casting](./23-type-confusion-and-casting/)** | C++ Type Confusion & Casting | Object memory layout, `static_cast` vs `dynamic_cast`, field reinterpretation, UBSan `-fsanitize=vptr` | `g++`, `clang++`, `UBSan` |
 | **[24-uninitialized-memory-and-infoleaks](./24-uninitialized-memory-and-infoleaks/)** | Struct Padding & Information Leaks | C structure alignment holes, uninitialized stack/kernel disclosures (KASLR defeat), `-ftrivial-auto-var-init` | `gcc`, `ASLR` |
+| **[25-kernel-uaf-and-slub-allocator](./25-kernel-uaf-and-slub-allocator/)** | Kernel Heap & SLUB Allocator | `kmem_cache` freelists, cross-type object recycling, Use-After-Free LPE, `CONFIG_SLAB_FREELIST_HARDENED` | `gcc`, `gdb` |
+| **[26-ebpf-verifier-and-type-tracking](./26-ebpf-verifier-and-type-tracking/)** | eBPF Verifier Logic & Analysis | Abstract interpretation, scalar interval tracking, ALU32 bounds desynchronization (CVE-2020-8835) | `gcc`, `ebpf` |
+| **[27-symbolic-execution-and-constraint-solving](./27-symbolic-execution-and-constraint-solving/)** | Symbolic Execution & SMT Solvers | AST path constraints, non-linear algebraic verification, automated branch solving, Z3 principles | `gcc`, `python3` |
 
 ---
 
